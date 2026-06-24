@@ -152,14 +152,22 @@ const ROLE_CARDS: RoleCardInfo[] = [
 
 export function LoginPage() {
   const navigate = useNavigate();
-  const { isAuthenticated, login } = useRole();
+  const { isAuthenticated, currentRole, login } = useRole();
 
-  // If already authenticated, redirect to dashboard
+  // If already authenticated and visiting /login directly, redirect to appropriate page
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/dashboard', { replace: true });
+      if (currentRole === 'PUBLIC_VIEWER') {
+        navigate('/public/passport/BP-HR-RE-SEST-2026-0001', { replace: true });
+      } else if (currentRole === 'SUPPLIER_USER') {
+        navigate('/supplier', { replace: true });
+      } else {
+        navigate('/dashboard', { replace: true });
+      }
     }
-  }, [isAuthenticated, navigate]);
+    // Only run on mount — not on every auth change
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleRoleSelect = (role: UserRole) => {
     const user: DemoUser | undefined = users.find((u) => u.role === role);
