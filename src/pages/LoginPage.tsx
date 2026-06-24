@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LogIn, Shield, Battery, Wrench, Monitor, Scale, Recycle, Settings } from 'lucide-react';
+import { LogIn, Shield, Battery, Wrench, Monitor, Scale, Recycle, Settings, PlusCircle, ClipboardCheck, Plug2, Package } from 'lucide-react';
 import { useRole } from '@/hooks/useRole';
 import { users } from '@/data/users';
 import type { UserRole, DemoUser } from '@/types';
@@ -100,6 +100,50 @@ const ROLE_CARDS: RoleCardInfo[] = [
     accentBg: 'rgba(239, 68, 68, 0.1)',
     accentBorder: 'rgba(239, 68, 68, 0.2)',
   },
+  {
+    role: 'RIMAC_OPERATOR',
+    label: 'Rimac Operator',
+    userName: 'Tomislav Jurić',
+    organization: 'Rimac Energy Demo Operations',
+    description: 'Creates assets, imports data, manages integrations',
+    icon: PlusCircle,
+    accentColor: 'text-[#06B6D4]',
+    accentBg: 'rgba(6, 182, 212, 0.1)',
+    accentBorder: 'rgba(6, 182, 212, 0.2)',
+  },
+  {
+    role: 'RIMAC_COMPLIANCE_MANAGER',
+    label: 'Compliance Manager',
+    userName: 'Ana Babić',
+    organization: 'Rimac Energy Demo Operations',
+    description: 'Reviews evidence, approves/rejects, publishes passports',
+    icon: ClipboardCheck,
+    accentColor: 'text-[#8B5CF6]',
+    accentBg: 'rgba(139, 92, 246, 0.1)',
+    accentBorder: 'rgba(139, 92, 246, 0.2)',
+  },
+  {
+    role: 'RIMAC_SERVICE_USER',
+    label: 'Rimac Service User',
+    userName: 'Marko Novak',
+    organization: 'Rimac Energy Demo Operations',
+    description: 'Manages lifecycle events, uploads documents',
+    icon: Plug2,
+    accentColor: 'text-[#10B981]',
+    accentBg: 'rgba(16, 185, 129, 0.1)',
+    accentBorder: 'rgba(16, 185, 129, 0.2)',
+  },
+  {
+    role: 'SUPPLIER_USER',
+    label: 'Supplier User',
+    userName: 'Chen Wei',
+    organization: 'Demo Cell Supplier A',
+    description: 'Views obligations, submits declarations',
+    icon: Package,
+    accentColor: 'text-[#F97316]',
+    accentBg: 'rgba(249, 115, 22, 0.1)',
+    accentBorder: 'rgba(249, 115, 22, 0.2)',
+  },
 ];
 
 // ============================================================
@@ -124,6 +168,8 @@ export function LoginPage() {
       // PUBLIC_VIEWER should go to public passport, not dashboard
       if (role === 'PUBLIC_VIEWER') {
         navigate('/public/passport/BP-HR-RE-SEST-2026-0001');
+      } else if (role === 'SUPPLIER_USER') {
+        navigate('/supplier');
       } else {
         navigate('/dashboard');
       }

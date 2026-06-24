@@ -1,5 +1,5 @@
-import { useLocation } from 'react-router-dom';
-import { Menu } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Menu, LogOut } from 'lucide-react';
 import { useAppStore } from '@/store';
 import { RoleSwitcher } from './RoleSwitcher';
 
@@ -17,7 +17,9 @@ const routeTitles: Record<string, string> = {
 
 export function TopBar() {
   const location = useLocation();
+  const navigate = useNavigate();
   const currentUser = useAppStore((s) => s.currentUser);
+  const logout = useAppStore((s) => s.logout);
   const sidebarCollapsed = useAppStore((s) => s.sidebarCollapsed);
 
   // Derive page title from current route
@@ -78,6 +80,16 @@ export function TopBar() {
             </span>
           </div>
         )}
+
+        {/* Logout button */}
+        <button
+          onClick={() => { logout(); navigate('/login'); }}
+          className="p-2 rounded-md text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-colors"
+          aria-label="Logout and return to role selection"
+          title="Logout"
+        >
+          <LogOut className="h-4 w-4" />
+        </button>
       </div>
     </header>
   );

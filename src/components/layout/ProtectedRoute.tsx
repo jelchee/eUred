@@ -27,6 +27,10 @@ export function ProtectedRoute({ children }: ProtectedRouteProps) {
     if (currentRole === 'PUBLIC_VIEWER') {
       return <Navigate to="/public/passport/BP-HR-RE-SEST-2026-0001" replace />;
     }
+    // SUPPLIER_USER should go to supplier portal if they hit a restricted route
+    if (currentRole === 'SUPPLIER_USER') {
+      return <Navigate to="/supplier" replace />;
+    }
     return <Navigate to={result.redirect ?? '/dashboard'} replace />;
   }
 
