@@ -1,0 +1,27 @@
+// Domain-specific components (battery passport, telemetry, compliance, etc.)
+export { AssetStatusCard } from './AssetStatusCard';
+export { AuditTrailTimeline } from './AuditTrailTimeline';
+export { CreateAssetForm } from './CreateAssetForm';
+export { BatteryHealthCard } from './BatteryHealthCard';
+export { CarbonFootprintBreakdown } from './CarbonFootprintBreakdown';
+export { ComplianceGapTable } from './ComplianceGapTable';
+export { ComplianceReviewPanel } from './ComplianceReviewPanel';
+export { DemoDataControlPanel } from './DemoDataControlPanel';
+export { DocumentVaultTable } from './DocumentVaultTable';
+export { LifecycleEventForm } from './LifecycleEventForm';
+export { LifecycleTimeline } from './LifecycleTimeline';
+export { MockIntegrationPanel } from './MockIntegrationPanel';
+export { PassportAttributeRow } from './PassportAttributeRow';
+export { PassportCompletenessCard } from './PassportCompletenessCard';
+export { PassportReadinessGauge } from './PassportReadinessGauge';
+export { QRCodePanel } from './QRCodePanel';
+export { RecycledContentBarList } from './RecycledContentBarList';
+export { RoleAccessBanner } from './RoleAccessBanner';
+export { SystemHealthPanel } from './SystemHealthPanel';
+export { TelemetryChart } from './TelemetryChart';
+export { CSVImportWizard } from './CSVImportWizard';
+export { DocumentUploadForm } from './DocumentUploadForm';
+export { TelemetrySimulatorControls } from './TelemetrySimulatorControls';
+export { SupplierPortalView } from './SupplierPortalView';
+export { PassportPublishWorkflow } from './PassportPublishWorkflow';
+export { VisibilityBadge } from './VisibilityBadge';
