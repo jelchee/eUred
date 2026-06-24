@@ -5,7 +5,7 @@ import {
   getSourceWeight,
   createGap,
 } from './compliance';
-import type { PassportAttribute, DataSource, PassportSection } from '@/types/passport';
+import type { PassportAttribute, DataSource } from '@/types/passport';
 import type { Document } from '@/types/document';
 
 // ============================================================

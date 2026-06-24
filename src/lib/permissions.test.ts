@@ -1,13 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import {
   ROLE_ACCESS_MAP,
-  ROLE_PERMISSION_MAP,
   ROUTE_PERMISSIONS,
   filterByRole,
   canAccessRoute,
   hasPermission,
 } from './permissions';
-import type { AccessLevel, UserRole } from '@/types';
+import type { AccessLevel } from '@/types';
 
 describe('ROLE_ACCESS_MAP', () => {
   it('PUBLIC_VIEWER can only see PUBLIC access level', () => {

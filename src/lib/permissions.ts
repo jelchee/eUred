@@ -333,9 +333,8 @@ export const ROUTE_PERMISSIONS: Record<string, UserRole[]> = {
 
 // ============================================================
 // PUBLIC ROUTES — do not require authentication
+// Routes: '/', '/public/passport/:passportId', '/login'
 // ============================================================
-
-const PUBLIC_ROUTES = ['/', '/public/passport/:passportId', '/login'];
 
 // ============================================================
 // HELPER FUNCTIONS
@@ -461,7 +460,6 @@ export function canAccessRoute(
   }
 
   // Determine redirect destination
-  const isPublicRoute = PUBLIC_ROUTES.includes(matchedRoute);
   const isAuthenticated = currentRole !== 'PUBLIC_VIEWER';
 
   const redirect = isAuthenticated ? '/dashboard' : '/login';
