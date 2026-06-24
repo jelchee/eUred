@@ -23,6 +23,10 @@ export function ProtectedRoute({ children }: ProtectedRouteProps) {
   const result = canAccessRoute(location.pathname, currentRole);
 
   if (!result.allowed) {
+    // PUBLIC_VIEWER should go to public passport, not loop back to login/dashboard
+    if (currentRole === 'PUBLIC_VIEWER') {
+      return <Navigate to="/public/passport/BP-HR-RE-SEST-2026-0001" replace />;
+    }
     return <Navigate to={result.redirect ?? '/dashboard'} replace />;
   }
 

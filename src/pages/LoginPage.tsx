@@ -121,7 +121,12 @@ export function LoginPage() {
     const user: DemoUser | undefined = users.find((u) => u.role === role);
     if (user) {
       login(user);
-      navigate('/dashboard');
+      // PUBLIC_VIEWER should go to public passport, not dashboard
+      if (role === 'PUBLIC_VIEWER') {
+        navigate('/public/passport/BP-HR-RE-SEST-2026-0001');
+      } else {
+        navigate('/dashboard');
+      }
     }
   };
 
